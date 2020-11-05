@@ -1,1 +1,8 @@
 <div>Hello, {{user.name}}</div>
+<div>THIS IS YOUR ACUTIONS
+  <ul>{{#each auctions}}
+    <li>{{this.name}}</li>
+    {{/each}}
+  </ul>
+</div>
+<a href="/profile/auc">add action</a>
