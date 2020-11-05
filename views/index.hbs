@@ -6,7 +6,7 @@
       <p>For a start please signin or signup</p>
       {{/unless}}
       <ul>{{#each auctions}}
-        <li>{{this.author.name}} is set auction for <b>{{this.name}}</b></li>
+        <li>{{this.author.name}} is set auction for <a href="/auction/{{this._id}}">{{this.name}}</a></li>
         {{/each}}
       </ul>
     </div>

@@ -9,8 +9,9 @@ const hbs = require('hbs');
 // import routers
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
-const regRouter = require('./routes/regRouter');
+const regRouter = require('./routes/registration');
 const profileRouter = require('./routes/profile');
+const auctionRouter = require('./routes/auction');
 
 // middleware for reslocals
 function resLocal(app) {
@@ -26,6 +27,9 @@ function routers(app) {
   app.use('/login', loginRouter);
   app.use('/registration', regRouter);
   app.use('/profile', profileRouter);
+  app.use('/auction', auctionRouter);
+
+  /* logging out */
   app.get('/logout', (req, res, next) => {
     req.session.destroy();
     res.redirect('/');
