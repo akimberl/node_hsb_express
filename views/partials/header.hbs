@@ -2,7 +2,7 @@
   <div class="pageName"><a href="/">This is header</a></div>
   <div class="btnLogReg">
     {{#if user}}
-      <a class="headerPart">Hello, {{user.name}}</a>
+      <a class="headerPart" href="/profile/{{user._id}}">Hello, {{user.name}}</a>
       <a class="headerPart" href="/profile/{{user._id}}"><button id="loginBtn">profile</button></a>
       <a class="headerPart" href="/logout"><button id="loginBtn">sign out</button></a>
     {{else}}
