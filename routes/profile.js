@@ -44,13 +44,13 @@ router.post('/auc', CheckUser, async (req, res) => {
 });
 
 /* getting form to update auction */
-router.get('/auc/:id', async (req, res) => {
-  const auction = await Auction.findOne({_id: req.params.id}); // taking this obj so it renders with previous values
+router.get('/auc/:id/edit', async (req, res) => {
+  const auction = await Auction.findOne({_id: req.params.id}); // taking this obj so it render with previous
   res.render('itemsform', {auction});
 });
 
 /* Updating */
-router.patch('/:id', (req, res) => {
+router.patch('/auc/:id/edit', (req, res) => {
   // updating auction
   Auction.findOneAndUpdate({_id: req.params.id}, {$set: {
     name: req.body.name,
@@ -60,13 +60,23 @@ router.patch('/:id', (req, res) => {
     description: req.body.description,
   }})
     .then(() => {
-      console.log('updated');
-      res.send(200).redirect('/profile');
+      // console.log('updated');
+      res.status(200).end();
     })
     .catch(() => {
-      console.log('could not update');
-      res.send(401).redirect('/profile');
+      // console.log('could not update');
+      res.status(401).end();
     })
+});
+
+/* Deleting */
+router.delete('/auc/:id/delete', async function (req, res, next) {
+  // deleting files
+  if (req.session.user) {
+    await Auction.deleteOne({'_id': req.params.id});
+    return res.status(200).end()
+  }
+  res.status(400).end();
 });
 
 module.exports = router;

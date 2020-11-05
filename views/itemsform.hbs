@@ -1,8 +1,9 @@
 {{#if auction}}
+<input id="auctionId" type="hidden" value="{{auction._id}}">
 <div class="container h-100">
   <div class="row h-100 justify-content-center align-items-center">
     <div class="col-10 col-md-10 col-lg-10">
-      <form class="items-form" name="auctionFormPatch" action="/profile/{{user._id}}/auc" method="POST">
+      <form class="items-form" name="auctionFormPatch" action="/profile/auc/{{auction._id}}/edit" method="POST">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputItem">Item Name</label>
@@ -30,7 +31,7 @@
         </div>
         <div class="form-group">
           <label for="description">Description</label>
-          <textarea class="form-control" id="description" rows="3">{{auction.description}}</textarea>
+          <textarea name="description" class="form-control" id="description" rows="3">{{auction.description}}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">List Item for Auction</button>
       </form>

@@ -1,8 +1,9 @@
 <div>Hello, {{user.name}}</div>
 <div>THIS IS YOUR ACUTIONS
   <ul>{{#each auctions}}
-    <li>{{this.name}} <a href="/profile/auc/{{this._id}}">edit</a></li>
+    <li>{{this.name}} <a href="/profile/auc/{{this._id}}/edit">edit</a> <a href="/profile/auc/{{this._id}}/delete" class="delete" id="{{this._id}}">delete</a><p id="error" style="color: red;"></p></li>
     {{/each}}
   </ul>
 </div>
 <a href="/profile/auc">add action</a>
+<script src="/js/frontDelete.js"></script>

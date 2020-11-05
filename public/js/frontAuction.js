@@ -38,12 +38,14 @@ if (document.auctionForm) {
   });
 }
 
-// handling updating of auction (with PATCH method)
+/* handling updating of auction (with PATCH method) */
 if (document.auctionFormPatch) {
   document.auctionFormPatch.addEventListener('submit', async (event) => {
     event.preventDefault();
   
     /* getting all values */
+    const id = document.querySelector('#auctionId').value;
+    console.log(id);
     const error = document.querySelector('#loginErr');
     const inputItem = document.querySelector('#inputItem').value;
     const selectCond = document.querySelector('#selectCond').value;
@@ -57,8 +59,8 @@ if (document.auctionFormPatch) {
       return;
     }
     /* saving auction */
-    const data = await fetch('/profile/auc', {
-      method: "POST",
+    const data = await fetch(`/profile/auc/${id}/edit`, { // Как найти id на фронте о_О
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
@@ -70,7 +72,6 @@ if (document.auctionFormPatch) {
         description,
       }),
     });
-    console.log(data);
     if (data.status === 200) {
       return window.location.assign('/profile'); // assign and href saves the histroy and let you go back to previous page
     }
