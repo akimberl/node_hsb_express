@@ -1,12 +1,11 @@
 /* deleting auction (with DELETE method) */
-console.log('Hello');
 document.addEventListener('click', async (event) => {
-  event.preventDefault()
   /* getting all values */
   const id = event.path[0].id // id of auction
   const tag = event.path[0] // tag containing
   const maintag = event.path[1];
   if (tag.classList.contains('delete')) {
+    event.preventDefault()
     const error = event.path[1].querySelector('#error');
 
     /* deleting auction */

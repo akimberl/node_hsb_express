@@ -3,8 +3,9 @@
   <div class="btnLogReg">
     {{#if user}}
       <a class="headerPart" href="/profile">Hello, {{user.name}}</a>
-      <a class="headerPart" href="/profile"><button id="loginBtn">profile</button></a>
-      <a class="headerPart" href="/logout"><button id="loginBtn">sign out</button></a>
+      <a class="headerPart" href="/"><button>GO TO MAIN PAGE</button></a>
+      <a class="headerPart" href="/profile"><button>profile</button></a>
+      <a class="headerPart" href="/logout"><button>sign out</button></a>
     {{else}}
       <a href="/login" class="tinyBtn"><button id="loginBtn">sign in</button></a>
       <a href="/registration" class="tinyBtn"><button id="regBtn">sign up</button></a>
