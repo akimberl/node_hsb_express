@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +22,15 @@
     "eslint": "^7.12.1",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {
+    "connect-mongo": "^3.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.10.12",
+    "path": "^0.12.7",
+    "sha256": "^0.2.0"
   }
 }
