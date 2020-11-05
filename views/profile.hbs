@@ -1,7 +1,7 @@
 <div>Hello, {{user.name}}</div>
 <div>THIS IS YOUR ACUTIONS
   <ul>{{#each auctions}}
-    <li>{{this.name}}</li>
+    <li>{{this.name}} <a href="/profile/auc/{{this._id}}">edit</a></li>
     {{/each}}
   </ul>
 </div>

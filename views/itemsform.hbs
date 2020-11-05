@@ -1,3 +1,45 @@
+{{#if auction}}
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-10 col-md-10 col-lg-10">
+      <form class="items-form" name="auctionFormPatch" action="/profile/{{user._id}}/auc" method="POST">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputItem">Item Name</label>
+            <input type="text" name="itemname" class="form-control" id="inputItem" value="{{auction.name}}" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="selectCond">Condition</label>
+            <select id="selectCond" name="itemcondition" class="form-control">
+              <option value="{{auction.codition}}" selected>{{auction.codition}}</option>
+              <option value="new">new</option>
+              <option value="almost new">almost new</option>
+              <option value="old">old</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputStartAt">Starts At</label>
+            <input type="text" name="startat" class="form-control" id="inputStartAt" value="{{auction.startsAt}}" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEndAt">Ends At</label>
+            <input type="text" name="endat" class="form-control" id="inputEndAt" value="{{auction.endsAt}}" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" rows="3">{{auction.description}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">List Item for Auction</button>
+      </form>
+      <div id='loginErr' style="color: red;"></div>
+    </div>
+  </div>
+</div>
+<script src="/js/frontAuction.js"></script>
+{{else}}
 <div class="container h-100">
   <div class="row h-100 justify-content-center align-items-center">
     <div class="col-10 col-md-10 col-lg-10">
@@ -38,3 +80,4 @@
   </div>
 </div>
 <script src="/js/frontAuction.js"></script>
+{{/if}}
