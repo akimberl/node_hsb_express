@@ -57,7 +57,7 @@ function initialSet(app) {
   app.set('views', path.join(__dirname, 'views'));
   
   // register partials
-  // hbs.registerPartials(`${__dirname}/views/partials`);
+  hbs.registerPartials(`${__dirname}/views/partials`);
 
   app.use(express.static(path.join(__dirname, 'public')));
   

@@ -2,7 +2,7 @@
 if (document.loginForm) {
   document.loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const container = document.querySelector('.registration');
+    const form = document.loginForm;
     const error = document.querySelector('#loginErr');
     const email = document.loginForm.email.value;
     const password = document.loginForm.password.value;
@@ -16,7 +16,7 @@ if (document.loginForm) {
     if (data.status === 200) {
       return window.location.assign('/'); // assign and href saves the histroy and let you go back to previous page
     }
-    container.classList.add('errorBorder');
+    form.classList.add('errorBorder');
     error.innerText = 'Wrong email or password';
   });
 }

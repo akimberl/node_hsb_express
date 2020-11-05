@@ -1,4 +1,5 @@
 const express = require('express');
+const sha256 = require('sha256');
 const User = require('../models/user');
 
 const router = express.Router();
@@ -15,7 +16,7 @@ router.post('/', (req, res) => {
   const user = new User({
     email: req.body.email,
     name: req.body.name,
-    password: req.body.password,
+    password: sha256(req.body.password),
   });
   user.save()
     .then(() => {
